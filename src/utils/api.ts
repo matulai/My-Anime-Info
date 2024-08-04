@@ -12,7 +12,11 @@ const getAnimeByName = (name) =>
     .get(`${API_ANIME_URL}/anime?q=${name}`)
     .then((response) => response.data);
 
+const getAnimesGenres = () =>
+  axios.get(`${API_ANIME_URL}/genres/anime`).then((response) => response.data);
+
 export default {
   getRandomAnime,
   getAnimeByName,
+  getAnimesGenres,
 };

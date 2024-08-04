@@ -1,4 +1,5 @@
 import RandomAnimes from '@/components/RandomAnimes';
+import Genres from '@/components/Genres';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import './HomePage.css';
@@ -11,6 +12,7 @@ const HomePage = () => {
         <Navbar />
         <div className="homapage-container-content-animesection">
           <RandomAnimes />
+          <Genres />
         </div>
       </div>
     </div>

@@ -1,0 +1,15 @@
+.genrethemes-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 256px;
+}
+
+.genrethemes-box-content {
+  display: flex;
+  flex-direction: row;
+  border-right: 1px solid var(--color-grey);
+  border-left: 1px solid var(--color-grey);
+  border-bottom: 1px solid var(--color-grey);
+  padding: 16px 0;
+}

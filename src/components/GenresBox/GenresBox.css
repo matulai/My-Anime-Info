@@ -1,0 +1,14 @@
+.genres-box-container {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-grey);
+  padding: 0 16px;
+  gap: 10px;
+}
+
+.genres-box-container-item-link {
+  font-size: 12px;
+  text-decoration: none;
+  text-align: left;
+  color: var(--color-yellow);
+}
