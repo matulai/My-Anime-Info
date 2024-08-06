@@ -1,0 +1,20 @@
+.animesbygenre-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.animesbygenre-container-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ffcc00;
+  padding: 9px 16px;
+}
+
+.animesbygenre-container-header-text {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: #121212;
+}

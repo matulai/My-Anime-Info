@@ -15,8 +15,20 @@ const getAnimeByName = (name) =>
 const getAnimesGenres = () =>
   axios.get(`${API_ANIME_URL}/genres/anime`).then((response) => response.data);
 
+const getAnimesByGenre = (number) =>
+  axios
+    .get(`${API_ANIME_URL}/anime?genres=${number}`)
+    .then((response) => response.data);
+
+const getNextPageAnimeGenre = (number, page) =>
+  axios
+    .get(`${API_ANIME_URL}/anime?genres=${number}&page=${page}`)
+    .then((response) => response.data);
+
 export default {
   getRandomAnime,
   getAnimeByName,
   getAnimesGenres,
+  getAnimesByGenre,
+  getNextPageAnimeGenre,
 };
