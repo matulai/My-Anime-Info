@@ -10,7 +10,7 @@ const HomePage = () => {
       <div className="homepage-container-content">
         <Header />
         <Navbar />
-        <div className="homapage-container-content-animesection">
+        <div className="homepage-container-content-animesection">
           <RandomAnimes />
           <Genres />
         </div>
