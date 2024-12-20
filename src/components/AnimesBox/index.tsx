@@ -1,5 +1,11 @@
+import { Anime } from '@/utils/globalTypes';
 import Spinner from '../Spinner';
 import './AnimesBox.css';
+
+type AnimeArrProp = {
+  animeArr: Anime[];
+  isLoading: boolean;
+};
 
 const AnimesBox: React.FC<AnimeArrProp> = ({ animeArr, isLoading }) => {
   return (

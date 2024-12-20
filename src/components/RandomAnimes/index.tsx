@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { toAnimeInfo } from '@/utils/functions.js';
+import { Anime } from '@/utils/globalTypes.js';
 import RefreshIcon from '@/components/Icons/RefreshIcon';
 import AnimesBox from '@/components/AnimesBox';
 import api from '@/utils/api.js';
 import './RandomAnimes.css';
 
 const RandomAnimes = () => {
-  const [animes, setAnimes] = useState([]);
+  const [animes, setAnimes] = useState<Anime[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [wantRefresh, setWantRefresh] = useState(false);
 
