@@ -6,6 +6,7 @@
   background-color: var(--color-black-secondary);
   padding: 0px 8px;
   height: 54px;
+  color: var(--color-yellow);
 }
 
 .header-container-title {
