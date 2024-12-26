@@ -7,14 +7,14 @@ type AnimeArrProp = {
   isLoading: boolean;
 };
 
-const AnimesBox: React.FC<AnimeArrProp> = ({ animeArr, isLoading }) => {
+const AnimesBox = ({ animeArr, isLoading }: AnimeArrProp) => {
   return (
     <div className="animesbox-container">
       {isLoading ? (
         <Spinner />
       ) : (
-        animeArr.map((anime) => (
-          <div className="animesbox-container-anime" key={anime.id}>
+        animeArr.map((anime, index) => (
+          <div className="animesbox-container-anime" key={index}>
             <img
               className="animesbox-container-anime-image"
               src={anime.imageUrl}

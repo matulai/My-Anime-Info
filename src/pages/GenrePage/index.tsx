@@ -14,7 +14,11 @@ const GenrePage = () => {
         <Header />
         <Navbar />
         <div className="genrepage-container-content-animesection">
-          <AnimesByGenre number={params.genreNumber} genre={params.genreName} />
+          <AnimesByGenre
+            number={params.genreNumber}
+            genre={params.genreName}
+            page={params.page}
+          />
           <Genres />
         </div>
       </div>

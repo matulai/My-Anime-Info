@@ -20,7 +20,7 @@ const getAnimesByGenre = (number) =>
     .get(`${API_ANIME_URL}/anime?genres=${number}`)
     .then((response) => response.data);
 
-const getNextPageAnimeGenre = (number, page) =>
+const getAnimesByGenreOnPage = (number, page) =>
   axios
     .get(`${API_ANIME_URL}/anime?genres=${number}&page=${page}`)
     .then((response) => response.data);
@@ -30,5 +30,5 @@ export default {
   getAnimeByName,
   getAnimesGenres,
   getAnimesByGenre,
-  getNextPageAnimeGenre,
+  getAnimesByGenreOnPage,
 };

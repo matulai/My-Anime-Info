@@ -7,7 +7,7 @@ const GenresBox = ({ genres }) => {
       {genres.map((genre) => (
         <Link
           key={genre.mal_id}
-          to={`/genre/${genre.mal_id}/${genre.name}`}
+          to={`/genre/${genre.mal_id}/${genre.name}/1`}
           className="genres-box-container-item-link"
         >
           {genre.name}
