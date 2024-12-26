@@ -25,24 +25,29 @@ const NavPagination = ({
   useEffect(() => {
     if (pagination.current_page === 1) {
       setPagesFromFirstPage();
+      console.log('hacia la primera pagina');
       return;
     } else if (pagination.current_page === pagination.last_visible_page) {
       setPagesFromLastPage();
+      console.log('hacia la ultima pagina');
       return;
     }
 
-    if ((pagination.current_page - 1) % 5 === 0) {
+    if (
+      pagination.current_page - 1 !== lastModulePage &&
+      (pagination.current_page - 1) % 5 === 0
+    ) {
       // Caso cuando vas hacia adelante
       const startPage = pagination.current_page - 1;
       setLastModulePage(startPage);
       setNewPages(startPage, 6);
-      console.log('adelante');
+      console.log('hacias adelante');
     } else if (pagination.current_page === lastModulePage) {
       // Caso cuando vas hacia atras
-      const startPage = lastModulePage - 4;
+      const startPage = lastModulePage - 5;
       setLastModulePage(startPage);
-      setNewPages(startPage, 5);
-      console.log('atras');
+      setNewPages(startPage, 6);
+      console.log('hacias atras');
     }
     console.log('LastModulePage', lastModulePage);
   }, [pagination.current_page]);
@@ -54,6 +59,7 @@ const NavPagination = ({
       i <= startPage + cant && i <= pagination.last_visible_page;
       i++
     ) {
+      if (i === 0) continue;
       newPageNumbers.push(i);
     }
     setPageNumbers(newPageNumbers);
@@ -62,8 +68,8 @@ const NavPagination = ({
   const setPagesFromLastPage = () => {
     const startPage =
       pagination.last_visible_page - (pagination.last_visible_page % 5);
-    setNewPages(startPage - 1, 6);
-    setLastModulePage(startPage - 1);
+    setNewPages(startPage, 6);
+    setLastModulePage(startPage);
   };
 
   const setPagesFromFirstPage = () => {
@@ -103,7 +109,8 @@ const NavPagination = ({
           </li>
         ))}
 
-        {pagination.current_page < pagination.last_visible_page - 5 ? (
+        {pagination.current_page <=
+        pagination.last_visible_page - (pagination.last_visible_page % 5) ? (
           <>
             <li className="page-item">...</li>
             <li className="page-item">
