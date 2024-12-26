@@ -84,7 +84,7 @@ const NavPagination = ({
           <>
             <li className="page-item">
               <Link
-                className="page-link"
+                className="page-item-link"
                 to={`/genre/${genreNumber}/${genreName}/1`}
               >
                 1
@@ -115,7 +115,7 @@ const NavPagination = ({
             <li className="page-item">...</li>
             <li className="page-item">
               <Link
-                className="page-link"
+                className="page-item-link"
                 to={`/genre/${genreNumber}/${genreName}/${pagination.last_visible_page}`}
               >
                 {pagination.last_visible_page}
