@@ -3,17 +3,18 @@ import './GenresBox.css';
 
 const GenresBox = ({ genres }) => {
   return (
-    <div className="genres-box-container">
+    <ul className="genres-box-container">
       {genres.map((genre) => (
-        <Link
-          key={genre.mal_id}
-          to={`/genre/${genre.mal_id}/${genre.name}/1`}
-          className="genres-box-container-item-link"
-        >
-          {genre.name}
-        </Link>
+        <li key={genre.mal_id} className="genres-box-container-item">
+          <Link
+            to={`/genre/${genre.mal_id}/${genre.name}/1`}
+            className="genres-box-container-item-link"
+          >
+            {genre.name}
+          </Link>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
