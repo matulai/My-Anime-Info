@@ -2,15 +2,15 @@ import RandomAnimes from '@/components/RandomAnimes';
 import Genres from '@/components/Genres';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
-import './HomePage.css';
+import '@/styles/PagesStyleBase.css';
 
 const HomePage = () => {
   return (
-    <div className="homepage-container">
-      <div className="homepage-container-content">
+    <div className="page-container">
+      <div className="page-container-content">
         <Header />
         <Navbar />
-        <div className="homepage-container-content-animesection">
+        <div className="page-container-content-animesection">
           <RandomAnimes />
           <Genres />
         </div>

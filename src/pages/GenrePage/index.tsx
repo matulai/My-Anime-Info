@@ -3,17 +3,17 @@ import Navbar from '@/components/Navbar';
 import AnimesByGenre from '@/components/AnimesByGenre';
 import Genres from '@/components/Genres';
 import { useParams } from 'react-router-dom';
-import './GenrePage.css';
+import '@/styles/PagesStyleBase.css';
 
 const GenrePage = () => {
   const params = useParams();
 
   return (
-    <div className="genrepage-container">
-      <div className="genrepage-container-content">
+    <div className="page-container">
+      <div className="page-container-content">
         <Header />
         <Navbar />
-        <div className="genrepage-container-content-animesection">
+        <div className="page-container-content-animesection">
           <AnimesByGenre
             number={params.genreNumber}
             genre={params.genreName}
