@@ -1,4 +1,4 @@
-.genrepage-container {
+.page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,16 +6,16 @@
   height: 100vh;
 }
 
-.genrepage-container-content {
+.page-container-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 1050px;
+  width: 1080px;
   background-color: var(--color-black-secondary);
   padding: 0 16px;
 }
 
-.genrepage-container-content-animesection {
+.page-container-content-animesection {
   display: flex;
   flex-direction: row;
   justify-content: center;
