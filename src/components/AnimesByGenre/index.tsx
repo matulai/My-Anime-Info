@@ -4,6 +4,7 @@ import { animesToAnimeInfo } from '@/utils/functions.js';
 import { useEffect, useState } from 'react';
 import NavPagination from '@/components/NavPagination';
 import api from '@/utils/api.js';
+import AnimeSectionHeader from '@/components/AnimeSectionHeader';
 
 const AnimesByGenre = ({ genre, number, page }) => {
   const [animesAPI, setAnimesAPI] = useState({
@@ -27,16 +28,16 @@ const AnimesByGenre = ({ genre, number, page }) => {
 
   return (
     <div className="animesbygenre-container">
-      <div className="animesbygenre-container-header">
-        <div className="animesbygenre-container-header-text">
-          {genre.toUpperCase()}
-        </div>
-        <NavPagination
-          genreName={genre}
-          genreNumber={number}
-          pagination={animesAPI.pagination}
-        />
-      </div>
+      <AnimeSectionHeader
+        title={genre}
+        children={
+          <NavPagination
+            genreName={genre}
+            genreNumber={number}
+            pagination={animesAPI.pagination}
+          />
+        }
+      />
       <AnimesBox
         animeArr={animesToAnimeInfo(animesAPI.data)}
         isLoading={isLoading}
