@@ -6,6 +6,7 @@ import AnimesBox from '@/components/AnimesBox';
 import api from '@/utils/api.js';
 import './RandomAnimes.css';
 import AnimeSectionHeader from '@/components/AnimeSectionHeader';
+import Button from '@/components/Button';
 
 const RandomAnimes = () => {
   const [animes, setAnimes] = useState<Anime[]>([]);
@@ -28,15 +29,18 @@ const RandomAnimes = () => {
     setWantRefresh(!wantRefresh);
   };
 
-  const RefreshButton = () => (
-    <button className="randomanimes-container-header-button" onClick={refresh}>
-      <RefreshIcon />
-    </button>
-  );
-
   return (
     <div className="randomanimes-container">
-      <AnimeSectionHeader title="Random Animes" children={<RefreshButton />} />
+      <AnimeSectionHeader
+        title="Random Animes"
+        children={
+          <Button
+            children={<RefreshIcon />}
+            type={'onlyicon'}
+            onClick={refresh}
+          />
+        }
+      />
       <AnimesBox animeArr={animes} isLoading={isLoading} />
     </div>
   );
