@@ -1,12 +1,33 @@
+import { useEffect, useState } from 'react';
+import { animesToAnimeInfo } from '@/utils/functions';
+import { useParams } from 'react-router-dom';
+import NavPagination from '@/components/NavPagination';
+import AnimesSection from '@/components/AnimesSection';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
-import AnimesByGenre from '@/components/AnimesByGenre';
 import Genres from '@/components/Genres';
-import { useParams } from 'react-router-dom';
+import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const GenrePage = () => {
   const params = useParams();
+
+  const [animesAPI, setAnimesAPI] = useState({
+    data: [],
+    pagination: { last_visible_page: 0, has_next_page: false, current_page: 0 },
+  });
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    api
+      .getAnimesByGenreOnPage(params.genreNumber || '', params.page || '')
+      .then((res) => {
+        setAnimesAPI(res);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [params.genreNumber, params.page]);
 
   return (
     <div className="page-container">
@@ -14,10 +35,17 @@ const GenrePage = () => {
         <Header />
         <Navbar />
         <div className="page-container-content-animesection">
-          <AnimesByGenre
-            number={params.genreNumber}
-            genre={params.genreName}
-            page={params.page}
+          <AnimesSection
+            title={params.genreName}
+            animes={animesToAnimeInfo(animesAPI.data)}
+            isLoading={isLoading}
+            children={
+              <NavPagination
+                genreName={params.genreName}
+                genreNumber={params.genreNumber}
+                pagination={animesAPI.pagination}
+              />
+            }
           />
           <Genres />
         </div>

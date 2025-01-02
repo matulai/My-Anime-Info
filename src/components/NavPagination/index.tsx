@@ -9,8 +9,8 @@ type Pagination = {
 };
 
 type NavPaginationProps = {
-  genreName: string;
-  genreNumber: number;
+  genreName?: string;
+  genreNumber?: number | string;
   pagination: Pagination;
 };
 
