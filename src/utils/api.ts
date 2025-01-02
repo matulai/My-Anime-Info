@@ -18,7 +18,7 @@ const getAnimesByGenre = (number: number) =>
     .get(`${API_ANIME_URL}/anime?genres=${number}`)
     .then((response) => response.data);
 
-const getAnimesByGenreOnPage = (number: number, page: number) =>
+const getAnimesByGenreOnPage = (number: string, page: string) =>
   axios
     .get(`${API_ANIME_URL}/anime?genres=${number}&page=${page}`)
     .then((response) => response.data);
