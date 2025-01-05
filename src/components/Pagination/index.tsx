@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './NavPagination.css';
+import './Pagination.css';
 
-type Pagination = {
+type PaginationApi = {
   last_visible_page: number;
   has_next_page: boolean;
   current_page: number;
@@ -11,10 +11,10 @@ type Pagination = {
 type NavPaginationProps = {
   genreName?: string;
   genreNumber?: number | string;
-  pagination: Pagination;
+  pagination: PaginationApi;
 };
 
-const NavPagination = ({
+const Pagination = ({
   genreName,
   genreNumber,
   pagination,
@@ -45,7 +45,6 @@ const NavPagination = ({
       setLastModulePage(startPage);
       setNewPages(startPage, 6);
     }
-    console.log('LastModulePage', lastModulePage);
   }, [pagination.current_page]);
 
   const setNewPages = (startPage: number, cant: number) => {
@@ -124,4 +123,4 @@ const NavPagination = ({
   );
 };
 
-export default NavPagination;
+export default Pagination;

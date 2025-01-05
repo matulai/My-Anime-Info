@@ -1,11 +1,11 @@
-import './AnimeSectionHeader.css';
+import './AnimesSectionHeader.css';
 
 interface AnimeSectionHeaderProps {
   title: string;
   children?: React.ReactNode;
 }
 
-const AnimeSectionHeader = ({ title, children }: AnimeSectionHeaderProps) => {
+const AnimesSectionHeader = ({ title, children }: AnimeSectionHeaderProps) => {
   return (
     <div className="animeSectionHeader-container">
       <div className="animeSectionHeader-container-title">
@@ -16,4 +16,4 @@ const AnimeSectionHeader = ({ title, children }: AnimeSectionHeaderProps) => {
   );
 };
 
-export default AnimeSectionHeader;
+export default AnimesSectionHeader;

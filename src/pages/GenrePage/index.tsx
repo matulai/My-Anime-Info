@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { animesToAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
-import NavPagination from '@/components/NavPagination';
+import NavPagination from '@/components/Pagination';
 import AnimesSection from '@/components/AnimesSection';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';

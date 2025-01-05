@@ -1,5 +1,5 @@
 import { Anime } from '@/utils/globalTypes.ts';
-import AnimeSectionHeader from '@/components/AnimeSectionHeader';
+import AnimeSectionHeader from '@/components/AnimesSectionHeader';
 import AnimesBox from '@/components/AnimesBox';
 import './AnimesSection.css';
 

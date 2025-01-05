@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import AnimesSectionHeader from '@/components/AnimeSectionHeader';
+import AnimesSectionHeader from '@/components/AnimesSectionHeader';
 import GenresBox from '@/components/GenresBox';
 import Modal from '@/components/Modal';
 import api from '@/utils/api';
