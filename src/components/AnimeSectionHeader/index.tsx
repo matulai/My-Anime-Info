@@ -2,7 +2,7 @@ import './AnimeSectionHeader.css';
 
 interface AnimeSectionHeaderProps {
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const AnimeSectionHeader = ({ title, children }: AnimeSectionHeaderProps) => {

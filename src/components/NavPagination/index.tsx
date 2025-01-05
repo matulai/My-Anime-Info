@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './NavPagination.css';
 
 type Pagination = {
@@ -25,11 +25,9 @@ const NavPagination = ({
   useEffect(() => {
     if (pagination.current_page === 1) {
       setPagesFromFirstPage();
-      console.log('hacia la primera pagina');
       return;
     } else if (pagination.current_page === pagination.last_visible_page) {
       setPagesFromLastPage();
-      console.log('hacia la ultima pagina');
       return;
     }
 
@@ -41,13 +39,11 @@ const NavPagination = ({
       const startPage = pagination.current_page - 1;
       setLastModulePage(startPage);
       setNewPages(startPage, 6);
-      console.log('hacias adelante');
     } else if (pagination.current_page === lastModulePage) {
       // Caso cuando vas hacia atras
       const startPage = lastModulePage - 5;
       setLastModulePage(startPage);
       setNewPages(startPage, 6);
-      console.log('hacias atras');
     }
     console.log('LastModulePage', lastModulePage);
   }, [pagination.current_page]);
