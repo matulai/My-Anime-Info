@@ -7,21 +7,30 @@ import Genres from '@/components/Genres';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Button from '@/components/Button';
+import Modal from '@/components/Modal';
 import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const HomePage = () => {
   const [animes, setAnimes] = useState<Anime[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [wantRefresh, setWantRefresh] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
     for (let i = 0; i < 4; i++) {
-      api.getRandomAnime().then((res) => {
-        console.log(res.data.type);
-        setAnimes((prevAnimes) => [...prevAnimes, toAnimeInfo(res.data)]);
-        setIsLoading(false);
-      });
+      api
+        .getRandomAnime()
+        .then((res) => {
+          setAnimes((prevAnimes) => [...prevAnimes, toAnimeInfo(res.data)]);
+        })
+        .catch((err) => {
+          setModalMessage(err.message);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   }, [wantRefresh]);
 
@@ -52,6 +61,9 @@ const HomePage = () => {
           <Genres />
         </div>
       </div>
+      {modalMessage && (
+        <Modal message={modalMessage} setModalMessage={setModalMessage} />
+      )}
     </div>
   );
 };

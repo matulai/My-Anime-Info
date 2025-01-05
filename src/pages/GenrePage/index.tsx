@@ -6,6 +6,7 @@ import AnimesSection from '@/components/AnimesSection';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Genres from '@/components/Genres';
+import Modal from '@/components/Modal';
 import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
@@ -16,13 +17,18 @@ const GenrePage = () => {
     data: [],
     pagination: { last_visible_page: 0, has_next_page: false, current_page: 0 },
   });
+
   const [isLoading, setIsLoading] = useState(true);
+  const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
     api
       .getAnimesByGenreOnPage(params.genreNumber || '', params.page || '')
       .then((res) => {
         setAnimesAPI(res);
+      })
+      .catch((err) => {
+        setModalMessage(err.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -50,6 +56,9 @@ const GenrePage = () => {
           <Genres />
         </div>
       </div>
+      {modalMessage && (
+        <Modal message={modalMessage} setModalMessage={setModalMessage} />
+      )}
     </div>
   );
 };
