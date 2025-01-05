@@ -1,23 +1,31 @@
 import { useEffect, useState } from 'react';
+import AnimesSectionHeader from '@/components/AnimeSectionHeader';
+import GenresBox from '@/components/GenresBox';
+import Modal from '@/components/Modal';
 import api from '@/utils/api';
-import AnimesHeader from '../AnimesHeader';
-import GenresBox from '../GenresBox';
 import './Genres.css';
 
 const Genres = () => {
   const [genres, setGenres] = useState([]);
+  const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
-    api.getAnimesGenres().then((data) => setGenres(data.data));
+    api
+      .getAnimesGenres()
+      .then((data) => setGenres(data.data))
+      .catch((err) => setModalMessage(err.message));
   }, []);
 
-  if (!genres.length) return null;
-
   return (
-    <div className="genrethemes-box">
-      <AnimesHeader title="Genre & Themes" />
-      <GenresBox genres={genres} />
-    </div>
+    <>
+      <div className="genrethemes-box">
+        <AnimesSectionHeader title="Genre & Themes" />
+        <GenresBox genres={genres} />
+      </div>
+      {modalMessage && (
+        <Modal message={modalMessage} setModalMessage={setModalMessage} />
+      )}
+    </>
   );
 };
 
