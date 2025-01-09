@@ -1,6 +1,11 @@
 import './Modal.css';
 
-const Modal = ({ message, setModalMessage }) => {
+interface ModalProps {
+  message: string;
+  setModalMessage: (message: string) => void;
+}
+
+const Modal = ({ message, setModalMessage }: ModalProps) => {
   const closeModal = () => {
     setModalMessage('');
   };
