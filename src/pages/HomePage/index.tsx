@@ -1,6 +1,7 @@
+import { toAnimeInfo, animesToAnimeInfo } from '@/utils/functions';
 import { useEffect, useState } from 'react';
-import { toAnimeInfo } from '@/utils/functions';
 import { Anime } from '@/utils/globalTypes';
+import OptionsVertical from '@/components/OptionsVertical';
 import AnimesSection from '@/components/AnimesSection';
 import RefreshIcon from '@/components/Icons/RefreshIcon';
 import Genres from '@/components/Genres';
@@ -12,10 +13,13 @@ import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const HomePage = () => {
-  const [animes, setAnimes] = useState<Anime[]>([]);
+  const [randomAnimes, setRandomAnimes] = useState<Anime[]>([]);
+  const [scheduleAnimes, setScheduleAnimes] = useState<Anime[]>([]);
   const [wantRefresh, setWantRefresh] = useState(false);
+  const [weekDay, setWeekDay] = useState('Monday');
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [randomIsLoading, setRandomIsLoading] = useState(true);
+  const [scheduleIsLoading, setScheduleIsLoading] = useState(true);
   const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
@@ -23,20 +27,37 @@ const HomePage = () => {
       api
         .getRandomAnime()
         .then((res) => {
-          setAnimes((prevAnimes) => [...prevAnimes, toAnimeInfo(res.data)]);
+          setRandomAnimes((prevAnimes) => [
+            ...prevAnimes,
+            toAnimeInfo(res.data),
+          ]);
         })
         .catch((err) => {
           setModalMessage(err.message);
         })
         .finally(() => {
-          setIsLoading(false);
+          setRandomIsLoading(false);
         });
     }
   }, [wantRefresh]);
 
+  useEffect(() => {
+    api
+      .getWeeklySchedule(weekDay)
+      .then((res) => {
+        setScheduleAnimes(animesToAnimeInfo(res.data));
+      })
+      .catch((err) => {
+        setModalMessage(err.message);
+      })
+      .finally(() => {
+        setScheduleIsLoading(false);
+      });
+  }, [weekDay]);
+
   const refresh = () => {
-    setAnimes([]);
-    setIsLoading(true);
+    setRandomAnimes([]);
+    setRandomIsLoading(true);
     setWantRefresh(!wantRefresh);
   };
 
@@ -46,18 +67,39 @@ const HomePage = () => {
         <Header />
         <Navbar />
         <div className="page-container-content-animesection">
-          <AnimesSection
-            title={'random animes'}
-            animes={animes}
-            isLoading={isLoading}
-            children={
-              <Button
-                children={<RefreshIcon />}
-                type={'onlyicon'}
-                onClick={refresh}
-              />
-            }
-          />
+          <div className="page-container-content-animesection-content">
+            <AnimesSection
+              title={'random animes'}
+              animes={randomAnimes}
+              isLoading={randomIsLoading}
+              children={
+                <Button
+                  children={<RefreshIcon />}
+                  type={'onlyicon'}
+                  onClick={refresh}
+                />
+              }
+            />
+            <AnimesSection
+              title={'weekly schedule'}
+              animes={scheduleAnimes}
+              isLoading={scheduleIsLoading}
+              children={
+                <OptionsVertical
+                  options={[
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday',
+                    'Saturday',
+                    'Sunday',
+                  ]}
+                  onClick={(option) => setWeekDay(option)}
+                />
+              }
+            />
+          </div>
           <Genres />
         </div>
       </div>

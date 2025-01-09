@@ -1,0 +1,16 @@
+.options-vertical-container-options {
+  height: 20px;
+  border: 1px solid var(--color-black-secondary);
+  background-color: unset;
+  color: var(--color-black-secondary);
+  outline: none;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+  font-size: 12px;
+}
+
+.options-vertical-container-option {
+  background-color: var(--color-black-secondary);
+  color: var(--color-white);
+}

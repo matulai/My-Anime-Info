@@ -17,7 +17,7 @@ const AnimesSection = ({
   children,
 }: AnimesSectionProps) => {
   return (
-    <div className="randomanimes-container">
+    <div className="animes-section-container">
       <AnimeSectionHeader title={title} children={children} />
       <AnimesBox animeArr={animes} isLoading={isLoading} />
     </div>

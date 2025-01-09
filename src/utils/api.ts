@@ -23,10 +23,16 @@ const getAnimesByGenreOnPage = (number: string, page: string) =>
     .get(`${API_ANIME_URL}/anime?genres=${number}&page=${page}`)
     .then((response) => response.data);
 
+const getWeeklySchedule = (day: string) =>
+  axios
+    .get(`${API_ANIME_URL}/schedules/${day}`)
+    .then((response) => response.data);
+
 export default {
-  getRandomAnime,
-  getAnimeByName,
-  getAnimesGenres,
-  getAnimesByGenre,
   getAnimesByGenreOnPage,
+  getWeeklySchedule,
+  getAnimesByGenre,
+  getAnimesGenres,
+  getAnimeByName,
+  getRandomAnime,
 };

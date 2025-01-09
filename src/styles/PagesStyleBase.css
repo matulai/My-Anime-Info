@@ -24,3 +24,9 @@
   padding: 24px 0px;
   gap: 24px;
 }
+
+.page-container-content-animesection-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
