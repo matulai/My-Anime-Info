@@ -6,17 +6,17 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <div className="navbar-container-navs">
-        <Link to="/">
-          <div className="navbar-container-navs-nav">Animes</div>
+        <Link to="/" className="navbar-container-navs-nav">
+          Animes
         </Link>
-        <Link to="/">
-          <div className="navbar-container-navs-nav">Top Animes</div>
+        <Link to="/" className="navbar-container-navs-nav">
+          Top Animes
         </Link>
-        <Link to="/">
-          <div className="navbar-container-navs-nav">Seasonal Animes</div>
+        <Link to="/" className="navbar-container-navs-nav">
+          Seasonal Animes
         </Link>
-        <Link to="/">
-          <div className="navbar-container-navs-nav">My List</div>
+        <Link to="/" className="navbar-container-navs-nav">
+          My List
         </Link>
       </div>
       <Search />
