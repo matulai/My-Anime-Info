@@ -1,7 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import SeasonPage from '@/pages/SeasonPage';
+import GenrePage from '@/pages/GenrePage';
 import ReactDOM from 'react-dom/client';
 import HomePage from '@/pages/HomePage';
-import GenrePage from '@/pages/GenrePage';
 import '@/styles/Colors.css';
 import './index.css';
 
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: '/genre/:genreNumber/:genreName/:page',
     element: <GenrePage />,
+  },
+  {
+    path: '/seasons',
+    element: <SeasonPage />,
   },
 ]);
 

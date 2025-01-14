@@ -12,7 +12,7 @@ const Navbar = () => {
         <Link to="/" className="navbar-container-navs-nav">
           Top Animes
         </Link>
-        <Link to="/" className="navbar-container-navs-nav">
+        <Link to="/seasons" className="navbar-container-navs-nav">
           Seasonal Animes
         </Link>
         <Link to="/" className="navbar-container-navs-nav">
