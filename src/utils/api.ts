@@ -28,11 +28,25 @@ const getWeeklySchedule = (day: string) =>
     .get(`${API_ANIME_URL}/schedules/${day}`)
     .then((response) => response.data);
 
+const getSeasonalAnimes = (year: string, season: string) =>
+  axios
+    .get(`${API_ANIME_URL}/seasons/${year}/${season}`)
+    .then((response) => response.data);
+
+const getSeasons = () =>
+  axios.get(`${API_ANIME_URL}/seasons`).then((response) => response.data);
+
+const getActualSeason = () =>
+  axios.get(`${API_ANIME_URL}/seasons/now`).then((response) => response.data);
+
 export default {
   getAnimesByGenreOnPage,
   getWeeklySchedule,
+  getSeasonalAnimes,
   getAnimesByGenre,
   getAnimesGenres,
+  getActualSeason,
   getAnimeByName,
   getRandomAnime,
+  getSeasons,
 };
