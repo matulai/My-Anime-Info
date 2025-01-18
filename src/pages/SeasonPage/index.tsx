@@ -12,8 +12,8 @@ import '@/styles/PagesStyleBase.css';
 
 const SeasonPage = () => {
   const [seasonalAnimes, setSeasonalAnimes] = useState<Anime[]>([]);
-  const [season, setSeason] = useState('spring');
-  const [year, setYear] = useState('2024');
+  const [season, setSeason] = useState('');
+  const [year, setYear] = useState('');
 
   const [seasonsInfo, setSeasonsInfo] = useState<
     { year: string; seasons: string[] }[]
@@ -29,6 +29,9 @@ const SeasonPage = () => {
   const [seasonalAnimesIsLoading, setSeasonalAnimesIsLoading] = useState(true);
   const [seasonsInfoIsLoading, setSeasonsInfoIsLoading] = useState(true);
   const [modalMessage, setModalMessage] = useState('');
+  // Este estado se utiliza para saber si ya se cargaron los datos de la temporada actual
+  // cosa que no me convence del todo ya que se carga solo una vez y se pregunta cada vez luego
+  const [isActualSeasonLoad, setIsActualSeasonLoad] = useState(false);
 
   useEffect(() => {
     api
@@ -40,6 +43,8 @@ const SeasonPage = () => {
             (season: { year: string; seasons: string[] }) => season.year
           )
         );
+        setYear(res.data[0].year);
+        setSeason(res.data[0].seasons[0]);
       })
       .catch((err) => {
         setModalMessage(err.message);
@@ -47,11 +52,9 @@ const SeasonPage = () => {
       .finally(() => {
         setSeasonsInfoIsLoading(false);
       });
-  }, []);
 
-  useEffect(() => {
     api
-      .getSeasonalAnimes(year, season)
+      .getActualSeason()
       .then((res) => {
         setSeasonalAnimes(animesToAnimeInfo(res.data));
       })
@@ -60,7 +63,24 @@ const SeasonPage = () => {
       })
       .finally(() => {
         setSeasonalAnimesIsLoading(false);
+        setIsActualSeasonLoad(true);
       });
+  }, []);
+
+  useEffect(() => {
+    if (isActualSeasonLoad) {
+      api
+        .getSeasonalAnimes(year, season)
+        .then((res) => {
+          setSeasonalAnimes(animesToAnimeInfo(res.data));
+        })
+        .catch((err) => {
+          setModalMessage(err.message);
+        })
+        .finally(() => {
+          setSeasonalAnimesIsLoading(false);
+        });
+    }
   }, [season, year]);
 
   const yearChange = (option: string) => {
