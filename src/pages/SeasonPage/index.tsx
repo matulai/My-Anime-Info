@@ -20,10 +20,10 @@ const SeasonPage = () => {
   >([]);
   const [years, setYears] = useState<string[]>([]);
   const [seasons, setSeasons] = useState([
+    'winter',
     'spring',
     'summer',
     'fall',
-    'winter',
   ]);
 
   const [seasonalAnimesIsLoading, setSeasonalAnimesIsLoading] = useState(true);
@@ -64,13 +64,14 @@ const SeasonPage = () => {
   }, [season, year]);
 
   const yearChange = (option: string) => {
-    if (option === seasonsInfo[0].year) {
+    if (option == seasonsInfo[0].year) {
       setYear(option);
       setSeasons(seasonsInfo[0].seasons);
     } else {
-      setSeasons(['spring', 'summer', 'fall', 'winter']);
+      setSeasons(['winter', 'spring', 'summer', 'fall']);
       setYear(option);
     }
+    setSeasonalAnimesIsLoading(true);
   };
 
   return (
@@ -83,13 +84,19 @@ const SeasonPage = () => {
             <AnimesSection
               title={'Season animes'}
               animes={seasonalAnimes}
-              isLoading={seasonalAnimesIsLoading && seasonsInfoIsLoading}
+              isLoading={
+                seasonalAnimesIsLoading ||
+                (seasonalAnimesIsLoading && seasonsInfoIsLoading)
+              }
               children={
                 <div>
                   <OptionsVertical options={years} onClick={yearChange} />
                   <OptionsVertical
                     options={seasons}
-                    onClick={(option) => setSeason(option)}
+                    onClick={(option) => {
+                      setSeason(option);
+                      setSeasonalAnimesIsLoading(true);
+                    }}
                   />
                 </div>
               }
