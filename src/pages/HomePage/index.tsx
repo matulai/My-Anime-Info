@@ -42,6 +42,7 @@ const HomePage = () => {
   }, [wantRefresh]);
 
   useEffect(() => {
+    setScheduleIsLoading(true);
     api
       .getWeeklySchedule(weekDay)
       .then((res) => {
@@ -56,8 +57,8 @@ const HomePage = () => {
   }, [weekDay]);
 
   const refresh = () => {
-    setRandomAnimes([]);
     setRandomIsLoading(true);
+    setRandomAnimes([]);
     setWantRefresh(!wantRefresh);
   };
 

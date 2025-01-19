@@ -22,6 +22,7 @@ const GenrePage = () => {
   const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
+    setIsLoading(true);
     api
       .getAnimesByGenreOnPage(params.genreNumber || '', params.page || '')
       .then((res) => {
