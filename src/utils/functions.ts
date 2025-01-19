@@ -10,6 +10,7 @@ const toAnimeInfo = (anime: AnimeAPI): Anime => {
     synopsis: anime.synopsis,
     season: anime.season,
     year: anime.year,
+    status: anime.status,
     genres: anime.genres,
   };
 };

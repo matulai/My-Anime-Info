@@ -13,6 +13,7 @@ type AnimeAPI = {
   synopsis?: string;
   season?: string;
   year?: number;
+  status?: string;
   genres: {
     id: number;
     name: string;
@@ -28,6 +29,7 @@ type Anime = {
   synopsis?: string;
   season?: string;
   year?: number;
+  status?: string;
   genres: {
     id: number;
     name: string;
