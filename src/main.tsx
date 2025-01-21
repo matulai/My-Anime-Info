@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import SeasonPage from '@/pages/SeasonPage';
 import GenrePage from '@/pages/GenrePage';
+import AnimePage from '@/pages/AnimePage';
 import ReactDOM from 'react-dom/client';
 import HomePage from '@/pages/HomePage';
 import '@/styles/Colors.css';
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/seasons',
     element: <SeasonPage />,
+  },
+  {
+    path: 'animeInfo/:animeName/:animeId',
+    element: <AnimePage />,
   },
 ]);
 

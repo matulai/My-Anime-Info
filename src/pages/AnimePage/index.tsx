@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Anime, AnimeAPI } from '@/utils/globalTypes';
 import { toAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
-import { Anime } from '@/utils/globalTypes';
 import AnimeInfo from '@/components/AnimeInfo';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Modal from '@/components/Modal';
 import api from '@/utils/api';
-
 import '@/styles/PagesStyleBase.css';
 
 const AnimePage = () => {
@@ -33,7 +32,13 @@ const AnimePage = () => {
     api
       .getAnimeByName(params.animeName || '')
       .then((res) => {
-        setAnime(toAnimeInfo(res.data));
+        setAnime(
+          toAnimeInfo(
+            res.data.find(
+              (anime: AnimeAPI) => anime.mal_id === Number(params.animeId)
+            )
+          )
+        );
       })
       .catch((err) => {
         setModalMessage(err.message);

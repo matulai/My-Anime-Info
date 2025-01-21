@@ -10,32 +10,49 @@ type AnimeInfoProps = {
 
 const AnimeInfo = ({ anime, isLoading }: AnimeInfoProps) => {
   return (
-    <div className="animes-section-container">
+    <div className="anime-info-container">
       <AnimeSectionHeader title={'Anime Info'} />
-      <div className="animes-section-content">
+      <div className="anime-info-content">
         {isLoading ? (
           <Spinner />
         ) : (
           <>
-            <div className="animes-section-content-image-wishlist">
+            <div className="anime-info-content-wishlist-image">
               <img
-                className="animesbox-container-anime-image"
+                className="anime-info-content-anime-image"
                 src={anime.imageUrl}
                 alt={anime.title}
               />
+              <button className="button-rectangle color-yellow">
+                Add to Wishlist
+              </button>
             </div>
-            <div className="animes-section-content-info">
-              <h2>{anime.title}</h2>
-              <p>{anime.synopsis}</p>
-              <div className="animes-section-content-info-subinfo">
+            <div className="anime-info-content-info">
+              <h2 style={{ textAlign: 'center' }}>{anime.title}</h2>
+              <p>
+                <span className="subtitles">Synopsis:</span>
+                <br />
+                {anime.synopsis}
+              </p>
+              <div className="anime-info-content-info-subinfo">
                 <div>
                   <p>
-                    Genres: {anime.genres.map((genre) => genre.name).join(', ')}
+                    <span className="subtitles">Genres:</span>
+                    {anime.genres.map((genre) => genre.name).join(', ')}
                   </p>
-                  <p>Episodes: {anime.episodes}</p>
-                  <p>Status: {anime.status}</p>
-                  <p>Season: {anime.season}</p>
-                  <p>Year: {anime.year}</p>
+                  <p>
+                    <span className="subtitles">Episodes:</span>{' '}
+                    {anime.episodes}
+                  </p>
+                  <p>
+                    <span className="subtitles">Status:</span> {anime.status}
+                  </p>
+                  <p>
+                    <span className="subtitles">Season:</span> {anime.season}
+                  </p>
+                  <p>
+                    <span className="subtitles">Year:</span> {anime.year}
+                  </p>
                 </div>
                 <iframe
                   title={anime.title}
