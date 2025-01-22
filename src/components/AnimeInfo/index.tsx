@@ -1,6 +1,7 @@
 import { Anime } from '@/utils/globalTypes';
 import AnimeSectionHeader from '@/components/AnimesSectionHeader';
 import Spinner from '@/components/Spinner';
+import Button from '@/components/Button';
 import './AnimeInfo.css';
 
 type AnimeInfoProps = {
@@ -17,29 +18,29 @@ const AnimeInfo = ({ anime, isLoading }: AnimeInfoProps) => {
           <Spinner />
         ) : (
           <>
-            <div className="anime-info-content-wishlist-image">
+            <div className="anime-info-content-addlist-image">
               <img
                 className="anime-info-content-anime-image"
                 src={anime.imageUrl}
                 alt={anime.title}
               />
-              <button className="button-rectangle color-yellow">
-                Add to Wishlist
-              </button>
+              <div className="anime-info-content-addlist-buttons">
+                <Button type="special" title="ADD TO LIST" />
+              </div>
             </div>
             <div className="anime-info-content-info">
-              <h2 style={{ textAlign: 'center' }}>{anime.title}</h2>
+              <h2 className="subtitles title">{anime.title}</h2>
               <p>
                 <span className="subtitles">Synopsis:</span>
                 <br />
                 {anime.synopsis}
               </p>
+              <p>
+                <span className="subtitles">Genres:</span>
+                {anime.genres.map((genre) => genre.name).join(', ')}
+              </p>
               <div className="anime-info-content-info-subinfo">
-                <div>
-                  <p>
-                    <span className="subtitles">Genres:</span>
-                    {anime.genres.map((genre) => genre.name).join(', ')}
-                  </p>
+                <div className="anime-info-content-info-subinfo-text">
                   <p>
                     <span className="subtitles">Episodes:</span>{' '}
                     {anime.episodes}

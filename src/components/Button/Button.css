@@ -1,12 +1,21 @@
 .button-rectangle {
-  height: 28px;
-  width: 106px;
   border-radius: 3px;
   font-size: 18px;
-  font-weight: 400;
   text-align: center;
   color: var(--color-black-secondary);
   border: none;
+}
+
+.small {
+  height: 28px;
+  width: 106px;
+  font-weight: 400;
+}
+
+.big {
+  height: 48px;
+  width: 100%;
+  font-weight: 700;
 }
 
 .color-yellow {
