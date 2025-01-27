@@ -1,23 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Search from '@/components/Search';
 import './Navbar.css';
 
 const Navbar = () => {
+  const location = useLocation(); // Obtiene la ruta actual
+
+  const navLinks = [
+    { to: '/', label: 'Animes' },
+    { to: '/', label: 'Top Animes' },
+    { to: '/seasons', label: 'Seasonal Animes' },
+    { to: '/', label: 'My List' },
+  ];
+
   return (
     <div className="navbar-container">
       <div className="navbar-container-navs">
-        <Link to="/" className="navbar-container-navs-nav">
-          Animes
-        </Link>
-        <Link to="/" className="navbar-container-navs-nav">
-          Top Animes
-        </Link>
-        <Link to="/seasons" className="navbar-container-navs-nav">
-          Seasonal Animes
-        </Link>
-        <Link to="/" className="navbar-container-navs-nav">
-          My List
-        </Link>
+        {navLinks.map((link, index) => (
+          <Link
+            key={index}
+            to={link.to}
+            className={`navbar-container-navs-nav ${
+              location.pathname === link.to ? 'active' : ''
+            }`}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
       <Search />
     </div>

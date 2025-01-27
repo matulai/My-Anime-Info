@@ -26,3 +26,8 @@
 .navbar-container-navs-nav:hover {
   color: var(--color-yellow);
 }
+
+.navbar-container-navs-nav.active {
+  color: var(--color-yellow);
+  border-bottom: 2px solid var(--color-yellow);
+}
