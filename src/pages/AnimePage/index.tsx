@@ -32,7 +32,6 @@ const AnimePage = () => {
     api
       .getAnimeById(Number(params.animeId))
       .then((res) => {
-        console.log(res);
         setAnime(toAnimeInfo(res.data));
       })
       .catch((err) => {

@@ -9,6 +9,7 @@
     box-shadow 0.3s;
   font-size: 12px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .options-vertical-container-option {

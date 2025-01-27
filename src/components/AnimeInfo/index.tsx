@@ -36,26 +36,30 @@ const AnimeInfo = ({ anime, isLoading }: AnimeInfoProps) => {
                 {anime.synopsis}
               </p>
               <p>
-                <span className="subtitles">Genres:</span>
+                <span className="subtitles">Genres: </span>
                 {anime.genres.map((genre) => genre.name).join(', ')}
               </p>
               <div className="anime-info-content-info-subinfo">
                 <div className="anime-info-content-info-subinfo-text">
                   <p>
-                    <span className="subtitles">Episodes:</span>{' '}
+                    <span className="subtitles">Episodes: </span>
                     {anime.episodes}
                   </p>
                   <p>
-                    <span className="subtitles">Status:</span> {anime.status}
+                    <span className="subtitles">Status: </span>
+                    {anime.status}
                   </p>
                   <p>
-                    <span className="subtitles">Season:</span> {anime.season}
+                    <span className="subtitles">Season: </span>
+                    {anime.season}
                   </p>
                   <p>
-                    <span className="subtitles">Year:</span> {anime.year}
+                    <span className="subtitles">Year: </span>
+                    {anime.year}
                   </p>
                 </div>
                 <iframe
+                  className="anime-info-content-info-subinfo-trailer"
                   title={anime.title}
                   src={anime.trailerEmbedUrl}
                   allowFullScreen
