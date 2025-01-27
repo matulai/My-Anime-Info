@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Anime, AnimeAPI } from '@/utils/globalTypes';
 import { toAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
+import { Anime } from '@/utils/globalTypes';
 import AnimeInfo from '@/components/AnimeInfo';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
@@ -30,15 +30,10 @@ const AnimePage = () => {
 
   useEffect(() => {
     api
-      .getAnimeByName(params.animeName || '')
+      .getAnimeById(Number(params.animeId))
       .then((res) => {
-        setAnime(
-          toAnimeInfo(
-            res.data.find(
-              (anime: AnimeAPI) => anime.mal_id === Number(params.animeId)
-            )
-          )
-        );
+        console.log(res);
+        setAnime(toAnimeInfo(res.data));
       })
       .catch((err) => {
         setModalMessage(err.message);
@@ -46,7 +41,7 @@ const AnimePage = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [params.animeName]);
+  }, [params.animeId]);
 
   return (
     <div className="page-container">

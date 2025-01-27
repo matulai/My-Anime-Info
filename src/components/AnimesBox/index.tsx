@@ -1,4 +1,5 @@
 import { Anime } from '@/utils/globalTypes';
+import { Link } from 'react-router-dom';
 import Spinner from '../Spinner';
 import './AnimesBox.css';
 
@@ -20,7 +21,12 @@ const AnimesBox = ({ animeArr, isLoading }: AnimeArrProp) => {
               src={anime.imageUrl}
               alt={anime.title}
             />
-            <div className="animesbox-container-anime-title">{anime.title}</div>
+            <Link
+              className="animesbox-container-anime-title"
+              to={`/animeInfo/${anime.id}`}
+            >
+              {anime.title}
+            </Link>
           </div>
         ))
       )}
