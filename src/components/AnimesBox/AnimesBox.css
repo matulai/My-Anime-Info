@@ -17,7 +17,6 @@
   width: 164.5px;
   height: 255px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
 
@@ -40,5 +39,4 @@
 
 .animesbox-container-anime:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }

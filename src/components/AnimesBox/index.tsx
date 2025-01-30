@@ -16,11 +16,16 @@ const AnimesBox = ({ animeArr, isLoading }: AnimeArrProp) => {
       ) : (
         animeArr.map((anime, index) => (
           <div className="animesbox-container-anime" key={index}>
-            <img
+            <Link
+              to={`/animeInfo/${anime.id}`}
               className="animesbox-container-anime-image"
-              src={anime.imageUrl}
-              alt={anime.title}
-            />
+            >
+              <img
+                className="animesbox-container-anime-image"
+                src={anime.imageUrl}
+                alt={anime.title}
+              />
+            </Link>
             <Link
               className="animesbox-container-anime-title"
               to={`/animeInfo/${anime.id}`}
