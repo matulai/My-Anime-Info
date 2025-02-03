@@ -1,8 +1,11 @@
-import { animesToAnimeInfo } from '@/utils/functions';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { animesToAnimeInfo } from '@/utils/functions';
 import { Anime } from '@/utils/globalTypes';
 import OptionsVertical from '@/components/OptionsVertical';
 import AnimesSection from '@/components/AnimesSection';
+import SearchIcon from '@/components/Icons/SearchIcon';
+import Button from '@/components/Button';
 import Genres from '@/components/Genres';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
@@ -11,40 +14,42 @@ import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const SeasonPage = () => {
-  const [seasonalAnimes, setSeasonalAnimes] = useState<Anime[]>([]);
-  const [season, setSeason] = useState('');
+  const params = useParams();
+  const navigate = useNavigate();
+
   const [year, setYear] = useState('');
+  const [season, setSeason] = useState('');
+  const [seasonalAnimes, setSeasonalAnimes] = useState<Anime[]>([]);
+
+  // Para las opciones de años y temporadas
+  const [years, setYears] = useState<string[]>([]);
+  const seasons = ['winter', 'spring', 'summer', 'fall'];
 
   const [seasonsInfo, setSeasonsInfo] = useState<
     { year: string; seasons: string[] }[]
   >([]);
-  const [years, setYears] = useState<string[]>([]);
-  const [seasons, setSeasons] = useState([
-    'winter',
-    'spring',
-    'summer',
-    'fall',
-  ]);
 
   const [seasonalAnimesIsLoading, setSeasonalAnimesIsLoading] = useState(true);
   const [seasonsInfoIsLoading, setSeasonsInfoIsLoading] = useState(true);
+
   const [modalMessage, setModalMessage] = useState('');
-  // Este estado se utiliza para saber si ya se cargaron los datos de la temporada actual
-  // cosa que no me convence del todo ya que se carga solo una vez y se pregunta cada vez luego
-  const [isActualSeasonLoad, setIsActualSeasonLoad] = useState(false);
 
   useEffect(() => {
     api
       .getSeasons()
       .then((res) => {
-        setSeasonsInfo(res.data);
         setYears(
           res.data.map(
             (season: { year: string; seasons: string[] }) => season.year
           )
         );
-        setYear(res.data[0].year);
-        setSeason(res.data[0].seasons[0]);
+        setSeasonsInfo(res.data);
+        console.log('here first time');
+        if (Object.keys(params).length === 0) {
+          console.log('here first time', Object.keys(params).length === 0);
+          setYear(res.data[0].year);
+          setSeason(res.data[0].seasons[0]);
+        }
       })
       .catch((err) => {
         setModalMessage(err.message);
@@ -52,26 +57,32 @@ const SeasonPage = () => {
       .finally(() => {
         setSeasonsInfoIsLoading(false);
       });
-
-    api
-      .getActualSeason()
-      .then((res) => {
-        setSeasonalAnimes(animesToAnimeInfo(res.data));
-      })
-      .catch((err) => {
-        setModalMessage(err.message);
-      })
-      .finally(() => {
-        setSeasonalAnimesIsLoading(false);
-        setIsActualSeasonLoad(true);
-      });
   }, []);
 
   useEffect(() => {
-    if (isActualSeasonLoad) {
+    console.log('here more times');
+    if (Object.keys(params).length === 0) {
       api
-        .getSeasonalAnimes(year, season)
+        .getActualSeason()
         .then((res) => {
+          setSeasonalAnimes(animesToAnimeInfo(res.data));
+          if (seasonsInfo.length > 0) {
+            setYear(seasonsInfo[0].year);
+            setSeason(seasonsInfo[0].seasons[0]);
+          }
+        })
+        .catch((err) => {
+          setModalMessage(err.message);
+        })
+        .finally(() => {
+          setSeasonalAnimesIsLoading(false);
+        });
+    } else {
+      api
+        .getSeasonalAnimes(String(params.year), String(params.season))
+        .then((res) => {
+          setYear(String(params.year));
+          setSeason(String(params.season));
           setSeasonalAnimes(animesToAnimeInfo(res.data));
         })
         .catch((err) => {
@@ -81,19 +92,14 @@ const SeasonPage = () => {
           setSeasonalAnimesIsLoading(false);
         });
     }
-  }, [season, year]);
+  }, [params]);
 
-  const yearChange = (option: string) => {
-    if (option == seasonsInfo[0].year) {
-      setYear(option);
-      setSeasons(seasonsInfo[0].seasons);
-    } else {
-      setSeasons(['winter', 'spring', 'summer', 'fall']);
-      setYear(option);
-    }
+  const goToSeasonalAnime = () => {
     setSeasonalAnimesIsLoading(true);
+    navigate(`/seasons/${year}/${season}`);
   };
 
+  console.log('year', year, 'season', season);
   return (
     <div className="page-container">
       <div className="page-container-content">
@@ -109,14 +115,25 @@ const SeasonPage = () => {
                 (seasonalAnimesIsLoading && seasonsInfoIsLoading)
               }
               children={
-                <div>
-                  <OptionsVertical options={years} onClick={yearChange} />
+                <div className="page-container-content-animesection-content-options">
+                  <OptionsVertical
+                    options={years}
+                    onClick={(option) => {
+                      setYear(option);
+                    }}
+                    defaultOption={year}
+                  />
                   <OptionsVertical
                     options={seasons}
                     onClick={(option) => {
                       setSeason(option);
-                      setSeasonalAnimesIsLoading(true);
                     }}
+                    defaultOption={season}
+                  />
+                  <Button
+                    children={<SearchIcon color="#000000" size={20} />}
+                    type="iconwithborder"
+                    onClick={goToSeasonalAnime}
                   />
                 </div>
               }

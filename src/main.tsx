@@ -19,8 +19,14 @@ const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
   },
   {
+    path: '/seasons/:year/:season',
+    element: <SeasonPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
     path: '/seasons',
     element: <SeasonPage />,
+    errorElement: <NotFoundPage />,
   },
   {
     path: '/animeInfo/:animeId',
