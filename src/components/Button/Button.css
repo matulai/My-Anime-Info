@@ -31,3 +31,7 @@
   border: none;
   background-color: unset;
 }
+
+.border-black {
+  border: 1.5px solid var(--color-black-secondary);
+}
