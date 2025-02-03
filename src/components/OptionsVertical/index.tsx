@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './OptionsVertical.css';
 
 interface OptionsVerticalProps {
   options: string[];
   onClick: (option: string) => void;
+  defaultOption: string;
 }
 
-const OptionsVertical = ({ options, onClick }: OptionsVerticalProps) => {
-  const [selectedOption, setSelectedOption] = useState<string>('');
+const OptionsVertical = ({
+  options,
+  onClick,
+  defaultOption,
+}: OptionsVerticalProps) => {
+  const [selectedOption, setSelectedOption] = useState<string>(
+    defaultOption || ''
+  );
+
+  useEffect(() => {
+    setSelectedOption(defaultOption);
+  }, [defaultOption]);
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);

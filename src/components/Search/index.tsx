@@ -9,7 +9,7 @@ const Search = () => {
         type="text"
         placeholder="Search Anime"
       />
-      <SearchIcon />
+      <SearchIcon color="#FFCC00" size={24} />
     </div>
   );
 };
