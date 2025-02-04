@@ -47,9 +47,15 @@ const getSeasons = () =>
 const getActualSeason = () =>
   axios.get(`${API_ANIME_URL}/seasons/now`).then((response) => response.data);
 
+const getTopAnimeByPage = (page: string) =>
+  axios
+    .get(`${API_ANIME_URL}/top/anime?page=${page}`)
+    .then((response) => response.data);
+
 export default {
   getAnimesByGenreOnPage,
   getAnimeByNameOnPage,
+  getTopAnimeByPage,
   getWeeklySchedule,
   getSeasonalAnimes,
   getAnimesByGenre,

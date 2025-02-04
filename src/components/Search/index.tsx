@@ -3,7 +3,7 @@ import { useState } from 'react';
 import SearchIcon from '@/components/Icons/SearchIcon';
 import './Search.css';
 
-const Search = (onSearch: (s: string) => void) => {
+const Search = () => {
   const navigate = useNavigate();
 
   const [searchValue, setSearchValue] = useState('');
@@ -11,7 +11,6 @@ const Search = (onSearch: (s: string) => void) => {
   const onClick = () => {
     if (searchValue) {
       navigate(`/search/${searchValue}/1`);
-      onSearch(searchValue);
     }
   };
 

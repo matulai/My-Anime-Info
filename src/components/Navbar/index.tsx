@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const navLinks = [
     { to: '/', label: 'Animes' },
-    { to: '/', label: 'Top Animes' },
+    { to: '/top/anime/1', label: 'Top Animes' },
     { to: '/seasons', label: 'Seasonal Animes' },
     { to: '/randomAnimes', label: 'Random' },
   ];

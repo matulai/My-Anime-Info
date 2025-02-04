@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import RandomAnimePage from '@/pages/RandomAnimePage';
 import NotFoundPage from '@/pages/NotFoundPage';
+import TopAnimePage from '@/pages/TopAnimePage';
 import SeasonPage from '@/pages/SeasonPage';
 import SearchPage from '@/pages/SearchPage';
 import GenrePage from '@/pages/GenrePage';
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
   {
     path: '/search/:animeName/:page',
     element: <SearchPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/top/anime/:page',
+    element: <TopAnimePage />,
     errorElement: <NotFoundPage />,
   },
   {
