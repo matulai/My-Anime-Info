@@ -3,6 +3,7 @@ import { toAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
 import { Anime } from '@/utils/globalTypes';
 import AnimeInfo from '@/components/AnimeInfo';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Modal from '@/components/Modal';
@@ -51,6 +52,7 @@ const AnimePage = () => {
           <AnimeInfo anime={anime} isLoading={isLoading} />
         </div>
       </div>
+      <Footer isLoading={isLoading} />
       {modalMessage && (
         <Modal message={modalMessage} setModalMessage={setModalMessage} />
       )}

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import NavPagination from '@/components/Pagination';
 import AnimesSection from '@/components/AnimesSection';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Genres from '@/components/Genres';
 import Modal from '@/components/Modal';
@@ -56,6 +57,7 @@ const SearchPage = () => {
           <Genres />
         </div>
       </div>
+      <Footer isLoading={isLoading} />
       {modalMessage && (
         <Modal message={modalMessage} setModalMessage={setModalMessage} />
       )}

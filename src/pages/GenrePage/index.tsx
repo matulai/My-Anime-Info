@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { animesToAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
-import Pagination from '@/components/Pagination';
 import AnimesSection from '@/components/AnimesSection';
+import Pagination from '@/components/Pagination';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Genres from '@/components/Genres';
 import Modal from '@/components/Modal';
@@ -56,6 +57,7 @@ const GenrePage = () => {
           <Genres />
         </div>
       </div>
+      <Footer isLoading={isLoading} />
       {modalMessage && (
         <Modal message={modalMessage} setModalMessage={setModalMessage} />
       )}

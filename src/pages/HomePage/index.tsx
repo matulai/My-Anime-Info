@@ -3,6 +3,7 @@ import { animesToAnimeInfo } from '@/utils/functions';
 import { Anime } from '@/utils/globalTypes';
 import OptionsVertical from '@/components/OptionsVertical';
 import AnimesSection from '@/components/AnimesSection';
+import Footer from '@/components/Footer';
 import Genres from '@/components/Genres';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
@@ -14,11 +15,11 @@ const HomePage = () => {
   const [scheduleAnimes, setScheduleAnimes] = useState<Anime[]>([]);
   const [weekDay, setWeekDay] = useState('Monday');
 
-  const [scheduleIsLoading, setScheduleIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
-    setScheduleIsLoading(true);
+    setIsLoading(true);
     api
       .getWeeklySchedule(weekDay)
       .then((res) => {
@@ -28,7 +29,7 @@ const HomePage = () => {
         setModalMessage(err.message);
       })
       .finally(() => {
-        setScheduleIsLoading(false);
+        setIsLoading(false);
       });
   }, [weekDay]);
 
@@ -41,7 +42,7 @@ const HomePage = () => {
           <AnimesSection
             title={'weekly schedule'}
             animes={scheduleAnimes}
-            isLoading={scheduleIsLoading}
+            isLoading={isLoading}
             children={
               <OptionsVertical
                 options={[
@@ -61,6 +62,7 @@ const HomePage = () => {
           <Genres />
         </div>
       </div>
+      <Footer isLoading={isLoading} />
       {modalMessage && (
         <Modal message={modalMessage} setModalMessage={setModalMessage} />
       )}

@@ -4,6 +4,7 @@ import { Anime } from '@/utils/globalTypes';
 import AnimesSection from '@/components/AnimesSection';
 import RefreshIcon from '@/components/Icons/RefreshIcon';
 import Genres from '@/components/Genres';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Button from '@/components/Button';
@@ -15,7 +16,7 @@ const RandomAnimePage = () => {
   const [randomAnimes, setRandomAnimes] = useState<Anime[]>([]);
   const [wantRefresh, setWantRefresh] = useState(false);
 
-  const [randomIsLoading, setRandomIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
@@ -32,13 +33,13 @@ const RandomAnimePage = () => {
           setModalMessage(err.message);
         })
         .finally(() => {
-          setRandomIsLoading(false);
+          setIsLoading(false);
         });
     }
   }, [wantRefresh]);
 
   const refresh = () => {
-    setRandomIsLoading(true);
+    setIsLoading(true);
     setRandomAnimes([]);
     setWantRefresh(!wantRefresh);
   };
@@ -52,7 +53,7 @@ const RandomAnimePage = () => {
           <AnimesSection
             title={'random animes'}
             animes={randomAnimes}
-            isLoading={randomIsLoading}
+            isLoading={isLoading}
             children={
               <Button
                 children={<RefreshIcon />}
@@ -64,6 +65,7 @@ const RandomAnimePage = () => {
           <Genres />
         </div>
       </div>
+      <Footer isLoading={isLoading} />
       {modalMessage && (
         <Modal message={modalMessage} setModalMessage={setModalMessage} />
       )}

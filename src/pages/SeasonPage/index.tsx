@@ -7,6 +7,7 @@ import AnimesSection from '@/components/AnimesSection';
 import SearchIcon from '@/components/Icons/SearchIcon';
 import Button from '@/components/Button';
 import Genres from '@/components/Genres';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Modal from '@/components/Modal';
@@ -44,9 +45,8 @@ const SeasonPage = () => {
           )
         );
         setSeasonsInfo(res.data);
-        console.log('here first time');
+
         if (Object.keys(params).length === 0) {
-          console.log('here first time', Object.keys(params).length === 0);
           setYear(res.data[0].year);
           setSeason(res.data[0].seasons[0]);
         }
@@ -60,7 +60,6 @@ const SeasonPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log('here more times');
     if (Object.keys(params).length === 0) {
       api
         .getActualSeason()
@@ -98,8 +97,6 @@ const SeasonPage = () => {
     setSeasonalAnimesIsLoading(true);
     navigate(`/seasons/${year}/${season}`);
   };
-
-  console.log('year', year, 'season', season);
   return (
     <div className="page-container">
       <div className="page-container-content">
@@ -142,6 +139,7 @@ const SeasonPage = () => {
           <Genres />
         </div>
       </div>
+      <Footer isLoading={seasonalAnimesIsLoading} />
       {modalMessage && (
         <Modal message={modalMessage} setModalMessage={setModalMessage} />
       )}
