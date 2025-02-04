@@ -10,6 +10,11 @@ const getAnimeByName = (name: string) =>
     .get(`${API_ANIME_URL}/anime?q=${name}`)
     .then((response) => response.data);
 
+const getAnimeByNameOnPage = (name: string, page: string) =>
+  axios
+    .get(`${API_ANIME_URL}/anime?q=${name}&page=${page}`)
+    .then((response) => response.data);
+
 const getAnimeById = (id: number) =>
   axios.get(`${API_ANIME_URL}/anime/${id}`).then((response) => response.data);
 
@@ -44,6 +49,7 @@ const getActualSeason = () =>
 
 export default {
   getAnimesByGenreOnPage,
+  getAnimeByNameOnPage,
   getWeeklySchedule,
   getSeasonalAnimes,
   getAnimesByGenre,
