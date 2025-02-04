@@ -9,16 +9,11 @@ type PaginationApi = {
 };
 
 type NavPaginationProps = {
-  genreName?: string;
-  genreNumber?: number | string;
+  url: string;
   pagination: PaginationApi;
 };
 
-const Pagination = ({
-  genreName,
-  genreNumber,
-  pagination,
-}: NavPaginationProps) => {
+const Pagination = ({ url, pagination }: NavPaginationProps) => {
   const [pageNumbers, setPageNumbers] = useState<number[]>([]);
   const [lastModulePage, setLastModulePage] = useState<number>(0);
 
@@ -78,10 +73,7 @@ const Pagination = ({
         {pagination.current_page > 5 ? (
           <>
             <li className="page-item">
-              <Link
-                className="page-item-link"
-                to={`/genre/${genreNumber}/${genreName}/1`}
-              >
+              <Link className="page-item-link" to={`${url}/1`}>
                 1
               </Link>
             </li>
@@ -97,7 +89,7 @@ const Pagination = ({
                   ? 'page-item-link-selected'
                   : 'page-item-link'
               }
-              to={`/genre/${genreNumber}/${genreName}/${pageNumber}`}
+              to={`${url}/${pageNumber}`}
             >
               {pageNumber}
             </Link>
@@ -111,7 +103,7 @@ const Pagination = ({
             <li className="page-item">
               <Link
                 className="page-item-link"
-                to={`/genre/${genreNumber}/${genreName}/${pagination.last_visible_page}`}
+                to={`${url}/${pagination.last_visible_page}`}
               >
                 {pagination.last_visible_page}
               </Link>
