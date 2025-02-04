@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import RandomAnimePage from '@/pages/RandomAnimePage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import SeasonPage from '@/pages/SeasonPage';
 import GenrePage from '@/pages/GenrePage';
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
     path: '/animeInfo/:animeId',
     element: <AnimePage />,
     errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/randomAnimes',
+    element: <RandomAnimePage />,
   },
   {
     path: '*',

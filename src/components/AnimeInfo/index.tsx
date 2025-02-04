@@ -1,7 +1,6 @@
 import { Anime } from '@/utils/globalTypes';
 import AnimeSectionHeader from '@/components/AnimesSectionHeader';
 import Spinner from '@/components/Spinner';
-import Button from '@/components/Button';
 import './AnimeInfo.css';
 
 type AnimeInfoProps = {
@@ -24,9 +23,6 @@ const AnimeInfo = ({ anime, isLoading }: AnimeInfoProps) => {
                 src={anime.imageUrl}
                 alt={anime.title}
               />
-              <div className="anime-info-content-addlist-buttons">
-                <Button type="special" title="ADD TO LIST" />
-              </div>
             </div>
             <div className="anime-info-content-info">
               <h2 className="subtitles title">{anime.title}</h2>

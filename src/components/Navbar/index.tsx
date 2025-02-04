@@ -9,7 +9,7 @@ const Navbar = () => {
     { to: '/', label: 'Animes' },
     { to: '/', label: 'Top Animes' },
     { to: '/seasons', label: 'Seasonal Animes' },
-    { to: '/', label: 'My List' },
+    { to: '/randomAnimes', label: 'Random' },
   ];
 
   return (
