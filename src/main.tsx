@@ -1,4 +1,3 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import RandomAnimePage from '@/pages/RandomAnimePage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import TopAnimePage from '@/pages/TopAnimePage';
