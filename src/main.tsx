@@ -11,53 +11,50 @@ import HomePage from '@/pages/HomePage';
 import '@/styles/Colors.css';
 import './index.css';
 
-const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      element: <HomePage />,
-    },
-    {
-      path: '/genre/:genreNumber/:genreName/:page',
-      element: <GenrePage />,
-      errorElement: <NotFoundPage />,
-    },
-    {
-      path: '/seasons/:year/:season',
-      element: <SeasonPage />,
-      errorElement: <NotFoundPage />,
-    },
-    {
-      path: '/seasons',
-      element: <SeasonPage />,
-      errorElement: <NotFoundPage />,
-    },
-    {
-      path: '/animeInfo/:animeId',
-      element: <AnimePage />,
-      errorElement: <NotFoundPage />,
-    },
-    {
-      path: '/randomAnimes',
-      element: <RandomAnimePage />,
-    },
-    {
-      path: '/search/:animeName/:page',
-      element: <SearchPage />,
-      errorElement: <NotFoundPage />,
-    },
-    {
-      path: '/top/anime/:page',
-      element: <TopAnimePage />,
-      errorElement: <NotFoundPage />,
-    },
-    {
-      path: '*',
-      element: <NotFoundPage />,
-    },
-  ],
-  { basename: '/My-Anime-Info' }
-);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomePage />,
+  },
+  {
+    path: '/genre/:genreNumber/:genreName/:page',
+    element: <GenrePage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/seasons/:year/:season',
+    element: <SeasonPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/seasons',
+    element: <SeasonPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/animeInfo/:animeId',
+    element: <AnimePage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/randomAnimes',
+    element: <RandomAnimePage />,
+  },
+  {
+    path: '/search/:animeName/:page',
+    element: <SearchPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/top/anime/:page',
+    element: <TopAnimePage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
+  },
+]);
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
