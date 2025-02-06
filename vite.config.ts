@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/My-Anime-Info/',
+  base: 'https://matulai.github.io/My-Anime-Info/',
   plugins: [react()],
   resolve: {
     alias: {
