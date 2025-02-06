@@ -22,12 +22,12 @@ const router = createHashRouter([
     errorElement: <NotFoundPage />,
   },
   {
-    path: '/seasons/:year/:season',
+    path: '/seasons',
     element: <SeasonPage />,
     errorElement: <NotFoundPage />,
   },
   {
-    path: '/seasons',
+    path: '/seasons/:year/:season',
     element: <SeasonPage />,
     errorElement: <NotFoundPage />,
   },
