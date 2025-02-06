@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# My Anime Info
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My Anime Info es una aplicación web que permite a los usuarios explorar información sobre animes. Utilizando la Jikan API, la aplicación proporciona datos detallados de animes, incluyendo sinopsis, puntuaciones, episodios y más.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Buscar animes por nombre, género, temporada, etc.
+- Ver detalles de un anime, incluyendo sinopsis, número de episodios, temporada, y más.
+- Interfaz sencilla y fácil de usar.
 
-## Expanding the ESLint configuration
+![captura de pantalla de my anime info](/src/assets/captura-pantalla-my-anime-info-1.webp)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![captura de pantalla de my anime info](/src/assets/captura-pantalla-my-anime-info-1.webp)
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologías
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
+- **Frontend**: React con Typescript
+- **API**: ([Jikan](https://docs.api.jikan.moe/)) (API no oficial de MyAnimeList)
+
+## Instalación
+
+Sigue estos pasos para ejecutar la aplicación en tu máquina local.
+
+### Requisitos
+
+- **Node.js**: Asegúrate de tener Node.js instalado.
+- **npm** (gestor de paquetes de Node.js)
+
+### Pasos para ejecutar la aplicación
+
+1. Clona el repositorio:
+
+```
+  git clone https://github.com/matulai/My-Anime-Info.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navega a la carpeta del proyecto:
+
+```
+  cd my-anime-info
+```
+
+3. Instala las dependencias:
+
+```
+  npm install
+```
+
+4. Para ejecutar la aplicación, usa el siguiente comando:
+
+```
+  npm run dev
+```
