@@ -1,7 +1,6 @@
 {
   "name": "my-anime-list",
   "private": true,
-  "homepage": "https://matulai.github.io/My-Anime-Info/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
