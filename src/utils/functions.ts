@@ -4,7 +4,7 @@ const toAnimeInfo = (anime: AnimeAPI): Anime => {
   return {
     id: anime.mal_id,
     title: anime.title,
-    imageUrl: anime.images?.jpg?.image_url,
+    imageUrl: anime.images?.webp?.image_url,
     trailerEmbedUrl: anime.trailer?.embed_url,
     episodes: anime.episodes,
     synopsis: anime.synopsis,
