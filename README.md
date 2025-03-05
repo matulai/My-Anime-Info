@@ -1,6 +1,6 @@
 # My Anime Info
 
-My Anime Info es una aplicación web que permite a los usuarios explorar información sobre animes. Utilizando la Jikan API, la aplicación proporciona datos detallados de animes, incluyendo sinopsis, puntuaciones, episodios y más.
+My Anime Info es una aplicación web que permite a los usuarios explorar información sobre animes. Utilizando la Jikan API, la aplicación proporciona datos detallados de animes, incluyendo sinopsis, temporada, episodios y más.
 
 ## Características
 
@@ -10,7 +10,7 @@ My Anime Info es una aplicación web que permite a los usuarios explorar informa
 
 ![captura de pantalla de my anime info](/src/assets/captura-pantalla-my-anime-info-1.webp)
 
-![captura de pantalla de my anime info](/src/assets/captura-pantalla-my-anime-info-1.webp)
+![captura de pantalla de my anime info](/src/assets/captura-pantalla-my-anime-info-2.webp)
 
 ## Tecnologías
 
