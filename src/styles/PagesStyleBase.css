@@ -2,17 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: top;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .page-container-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 1080px;
   background-color: var(--color-black-secondary);
   padding: 0 16px;
+  flex-grow: 1;
 }
 
 .page-container-content-animesection {
