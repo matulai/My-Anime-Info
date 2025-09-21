@@ -1,4 +1,6 @@
 import { RouterProvider, createHashRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import RandomAnimePage from '@/pages/RandomAnimePage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import TopAnimePage from '@/pages/TopAnimePage';
@@ -10,6 +12,8 @@ import ReactDOM from 'react-dom/client';
 import HomePage from '@/pages/HomePage';
 import '@/styles/Colors.css';
 import './index.css';
+
+const queryClient = new QueryClient();
 
 const router = createHashRouter([
   {
@@ -58,7 +62,12 @@ const router = createHashRouter([
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(<RouterProvider router={router} />);
+  ReactDOM.createRoot(rootElement).render(
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
 } else {
   console.error('Root element not found');
 }
