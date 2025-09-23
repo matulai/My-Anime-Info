@@ -12,9 +12,10 @@
 
 .animesbox-container-anime {
   display: flex;
+  flex: 0 0 calc((100% - (3 * 16px)) / 4);
   flex-direction: column;
   gap: 6px;
-  width: 164.5px;
+  /* width: 164.5px; */
   height: 255px;
   overflow: hidden;
   transition: 0.3s;

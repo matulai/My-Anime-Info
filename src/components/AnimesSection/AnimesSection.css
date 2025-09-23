@@ -1,5 +1,5 @@
 .animes-section-container {
   display: flex;
   flex-direction: column;
-  width: 740px;
+  max-width: 740px;
 }
