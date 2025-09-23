@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   max-width: 1080px;
+  width: 100%;
   background-color: var(--color-black-secondary);
   padding: 0 16px;
   flex-grow: 1;
@@ -16,7 +17,7 @@
 
 .page-container-content-animesection {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 100%;
@@ -34,4 +35,10 @@
   display: flex;
   flex-direction: row;
   gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .page-container-content-animesection {
+    flex-direction: row;
+  }
 }

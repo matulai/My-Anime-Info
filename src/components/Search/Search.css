@@ -4,7 +4,7 @@
   align-items: center;
   border: 1px solid var(--color-grey);
   padding: 0px 10px;
-  min-width: 320px;
+  min-width: 260px;
   height: 26px;
   gap: 12px;
 }
@@ -21,4 +21,10 @@
 
 .search-container-input::placeholder {
   color: var(--color-grey);
+}
+
+@media (min-width: 1024px) {
+  .search-container {
+    min-width: 320px;
+  }
 }
