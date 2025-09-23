@@ -1,3 +1,4 @@
+import { useStaticQuery } from '@/hooks/useQueries';
 import axios from 'axios';
 
 const API_ANIME_URL = 'https://api.jikan.moe/v4';
@@ -18,8 +19,8 @@ const getAnimeByNameOnPage = (name: string, page: string) =>
 const getAnimeById = (id: number) =>
   axios.get(`${API_ANIME_URL}/anime/${id}`).then((response) => response.data);
 
-const getAnimesGenres = () =>
-  axios.get(`${API_ANIME_URL}/genres/anime`).then((response) => response.data);
+const useGetAnimesGenres = () =>
+  useStaticQuery(['genres'], () => axios.get(`${API_ANIME_URL}/genres/anime`));
 
 const getAnimesByGenre = (number: number) =>
   axios
@@ -52,14 +53,14 @@ const getTopAnimeByPage = (page: string) =>
     .get(`${API_ANIME_URL}/top/anime?page=${page}`)
     .then((response) => response.data);
 
-export default {
+export {
   getAnimesByGenreOnPage,
   getAnimeByNameOnPage,
   getTopAnimeByPage,
   getWeeklySchedule,
   getSeasonalAnimes,
   getAnimesByGenre,
-  getAnimesGenres,
+  useGetAnimesGenres,
   getActualSeason,
   getAnimeByName,
   getRandomAnime,

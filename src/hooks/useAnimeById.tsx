@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
+import { getAnimeById } from '@/utils/api';
 import { toAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
 import { Anime } from '@/utils/globalTypes';
-import api from '@/utils/api';
 
 export function useAnimeById() {
   const params = useParams();
@@ -23,8 +23,7 @@ export function useAnimeById() {
   });
 
   useEffect(() => {
-    api
-      .getAnimeById(Number(params.animeId))
+    getAnimeById(Number(params.animeId))
       .then((res) => {
         setAnime(toAnimeInfo(res.data));
       })

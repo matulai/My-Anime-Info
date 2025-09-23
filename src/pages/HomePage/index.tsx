@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getWeeklySchedule } from '@/utils/api';
 import { animesToAnimeInfo } from '@/utils/functions';
 import { Anime } from '@/utils/globalTypes';
 import OptionsVertical from '@/components/OptionsVertical';
@@ -8,7 +9,6 @@ import Genres from '@/components/Genres';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Modal from '@/components/Modal';
-import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const HomePage = () => {
@@ -20,8 +20,7 @@ const HomePage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    api
-      .getWeeklySchedule(weekDay)
+    getWeeklySchedule(weekDay)
       .then((res) => {
         setScheduleAnimes(animesToAnimeInfo(res.data));
       })

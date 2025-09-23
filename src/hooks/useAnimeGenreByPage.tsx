@@ -1,7 +1,7 @@
+import { getAnimesByGenreOnPage } from '@/utils/api';
 import { useEffect, useState } from 'react';
 import { animesToAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
-import api from '@/utils/api';
 
 export function useAnimeGenreByPage() {
   const params = useParams();
@@ -16,8 +16,7 @@ export function useAnimeGenreByPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    api
-      .getAnimesByGenreOnPage(params.genreNumber || '', params.page || '')
+    getAnimesByGenreOnPage(params.genreNumber || '', params.page || '')
       .then((res) => {
         setAnimesAPI({
           data: animesToAnimeInfo(res.data),

@@ -1,3 +1,4 @@
+import { getAnimeByNameOnPage } from '@/utils/api';
 import { useEffect, useState } from 'react';
 import { animesToAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
@@ -8,7 +9,6 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Genres from '@/components/Genres';
 import Modal from '@/components/Modal';
-import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const SearchPage = () => {
@@ -24,8 +24,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    api
-      .getAnimeByNameOnPage(params.animeName || '', params.page || '')
+    getAnimeByNameOnPage(params.animeName || '', params.page || '')
       .then((res) => {
         setAnimesAPI(res);
       })

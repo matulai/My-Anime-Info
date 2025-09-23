@@ -1,3 +1,4 @@
+import { getSeasons, getActualSeason, getSeasonalAnimes } from '@/utils/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { animesToAnimeInfo } from '@/utils/functions';
@@ -11,7 +12,6 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Modal from '@/components/Modal';
-import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const SeasonPage = () => {
@@ -36,8 +36,7 @@ const SeasonPage = () => {
   const [modalMessage, setModalMessage] = useState('');
 
   useEffect(() => {
-    api
-      .getSeasons()
+    getSeasons()
       .then((res) => {
         setYears(
           res.data.map(
@@ -61,8 +60,7 @@ const SeasonPage = () => {
 
   useEffect(() => {
     if (Object.keys(params).length === 0) {
-      api
-        .getActualSeason()
+      getActualSeason()
         .then((res) => {
           setSeasonalAnimes(animesToAnimeInfo(res.data));
           if (seasonsInfo.length > 0) {
@@ -77,8 +75,7 @@ const SeasonPage = () => {
           setSeasonalAnimesIsLoading(false);
         });
     } else {
-      api
-        .getSeasonalAnimes(String(params.year), String(params.season))
+      getSeasonalAnimes(String(params.year), String(params.season))
         .then((res) => {
           setYear(String(params.year));
           setSeason(String(params.season));

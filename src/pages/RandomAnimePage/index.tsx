@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getRandomAnime } from '@/utils/api';
 import { toAnimeInfo } from '@/utils/functions';
 import { Anime } from '@/utils/globalTypes';
 import AnimesSection from '@/components/AnimesSection';
@@ -9,7 +10,6 @@ import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
-import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const RandomAnimePage = () => {
@@ -21,8 +21,7 @@ const RandomAnimePage = () => {
 
   useEffect(() => {
     for (let i = 0; i < 4; i++) {
-      api
-        .getRandomAnime()
+      getRandomAnime()
         .then((res) => {
           setRandomAnimes((prevAnimes) => [
             ...prevAnimes,

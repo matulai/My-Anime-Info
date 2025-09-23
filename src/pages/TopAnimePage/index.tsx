@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getTopAnimeByPage } from '@/utils/api';
 import { animesToAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
 import Pagination from '@/components/Pagination';
@@ -8,7 +9,6 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Genres from '@/components/Genres';
 import Modal from '@/components/Modal';
-import api from '@/utils/api';
 import '@/styles/PagesStyleBase.css';
 
 const TopAnimePage = () => {
@@ -24,8 +24,7 @@ const TopAnimePage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    api
-      .getTopAnimeByPage(params.page || '')
+    getTopAnimeByPage(params.page || '')
       .then((res) => {
         setAnimesAPI(res);
       })
