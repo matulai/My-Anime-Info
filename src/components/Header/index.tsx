@@ -1,6 +1,7 @@
 import Search from '@/components/Search';
 import Navbar from '@/components/Navbar';
 import Title from '@/components/Title';
+import Menu from '@/components/Menu';
 import './Header.css';
 
 const Header = () => {
@@ -8,7 +9,10 @@ const Header = () => {
     <>
       <Title />
       <div className="header-container-sub">
-        <Navbar />
+        <Menu />
+        <div className="header-container-sub-navbar-view">
+          <Navbar />
+        </div>
         <Search />
       </div>
     </>

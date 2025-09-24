@@ -1,8 +1,23 @@
 .header-container-sub {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--color-black-secondary);
   padding: 12px 0px;
   border-bottom: 1px solid var(--color-yellow);
-  gap: 3.125em;
+}
+
+.header-container-sub-navbar-view {
+  width: 100%;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header-container-sub-navbar-view {
+    display: block;
+  }
+
+  .header-container-sub {
+    gap: 48px;
+  }
 }
