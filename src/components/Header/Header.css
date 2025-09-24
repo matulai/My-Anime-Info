@@ -1,0 +1,8 @@
+.header-container-sub {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-black-secondary);
+  padding: 12px 0px;
+  border-bottom: 1px solid var(--color-yellow);
+  gap: 3.125em;
+}

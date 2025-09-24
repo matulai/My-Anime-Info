@@ -6,8 +6,7 @@ import OptionsVertical from '@/components/OptionsVertical';
 import AnimesSection from '@/components/AnimesSection';
 import Footer from '@/components/Footer';
 import Genres from '@/components/Genres';
-import Navbar from '@/components/Navbar';
-import Title from '@/components/Title';
+import Header from '@/components/Header';
 import Modal from '@/components/Modal';
 import '@/styles/PagesStyleBase.css';
 
@@ -35,8 +34,7 @@ const HomePage = () => {
   return (
     <div className="page-container">
       <div className="page-container-content">
-        <Title />
-        <Navbar />
+        <Header />
         <div className="page-container-content-animesection">
           <AnimesSection
             title={'weekly schedule'}

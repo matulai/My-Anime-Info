@@ -5,9 +5,8 @@ import { useParams } from 'react-router-dom';
 import Pagination from '@/components/Pagination';
 import AnimesSection from '@/components/AnimesSection';
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
+import Header from '@/components/Header';
 import Genres from '@/components/Genres';
-import Title from '@/components/Title';
 import Modal from '@/components/Modal';
 import '@/styles/PagesStyleBase.css';
 
@@ -39,8 +38,7 @@ const TopAnimePage = () => {
   return (
     <div className="page-container">
       <div className="page-container-content">
-        <Title />
-        <Navbar />
+        <Header />
         <div className="page-container-content-animesection">
           <AnimesSection
             title="Top Anime"

@@ -6,9 +6,8 @@ import AnimesSection from '@/components/AnimesSection';
 import RefreshIcon from '@/components/Icons/RefreshIcon';
 import Genres from '@/components/Genres';
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
 import Button from '@/components/Button';
-import Title from '@/components/Title';
+import Header from '@/components/Header';
 import Modal from '@/components/Modal';
 import '@/styles/PagesStyleBase.css';
 
@@ -46,8 +45,7 @@ const RandomAnimePage = () => {
   return (
     <div className="page-container">
       <div className="page-container-content">
-        <Title />
-        <Navbar />
+        <Header />
         <div className="page-container-content-animesection">
           <AnimesSection
             title={'random animes'}

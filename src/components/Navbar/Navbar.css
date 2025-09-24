@@ -1,21 +1,12 @@
 .navbar-container {
   display: flex;
-  align-items: center;
-  background-color: var(--color-black-secondary);
-  padding: 12px 0px;
-  border-bottom: 1px solid var(--color-yellow);
-  gap: 3.125em;
-}
-
-.navbar-container-navs {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 12px;
   width: 100%;
 }
 
-.navbar-container-navs-nav {
+.navbar-container-nav {
   font-size: 16px;
   font-weight: 700;
   color: var(--color-white);
@@ -23,11 +14,11 @@
   text-align: center;
 }
 
-.navbar-container-navs-nav:hover {
+.navbar-container-nav:hover {
   color: var(--color-yellow);
 }
 
-.navbar-container-navs-nav.active {
+.navbar-container-nav.active {
   color: var(--color-yellow);
   border-bottom: 2px solid var(--color-yellow);
 }
