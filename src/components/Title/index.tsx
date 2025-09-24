@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import './Header.css';
+import './Title.css';
 
-const Header = () => {
+const Title = () => {
   return (
     <div className="header-container">
       <Link to={`/`}>
@@ -11,4 +11,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Title;

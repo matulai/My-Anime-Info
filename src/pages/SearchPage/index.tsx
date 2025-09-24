@@ -4,10 +4,10 @@ import { animesToAnimeInfo } from '@/utils/functions';
 import { useParams } from 'react-router-dom';
 import NavPagination from '@/components/Pagination';
 import AnimesSection from '@/components/AnimesSection';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Genres from '@/components/Genres';
+import Title from '@/components/Title';
 import Modal from '@/components/Modal';
 import '@/styles/PagesStyleBase.css';
 
@@ -39,7 +39,7 @@ const SearchPage = () => {
   return (
     <div className="page-container">
       <div className="page-container-content">
-        <Header />
+        <Title />
         <Navbar />
         <div className="page-container-content-animesection">
           <AnimesSection

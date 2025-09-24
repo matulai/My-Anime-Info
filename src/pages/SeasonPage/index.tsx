@@ -9,8 +9,8 @@ import SearchIcon from '@/components/Icons/SearchIcon';
 import Button from '@/components/Button';
 import Genres from '@/components/Genres';
 import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
+import Title from '@/components/Title';
 import Modal from '@/components/Modal';
 import '@/styles/PagesStyleBase.css';
 
@@ -97,7 +97,7 @@ const SeasonPage = () => {
   return (
     <div className="page-container">
       <div className="page-container-content">
-        <Header />
+        <Title />
         <Navbar />
         <div className="page-container-content-animesection">
           <div className="page-container-content-animesection-content">

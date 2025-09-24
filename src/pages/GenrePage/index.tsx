@@ -1,10 +1,10 @@
 import { useAnimeGenreByPage } from '@/hooks/useAnimeGenreByPage';
 import AnimesSection from '@/components/AnimesSection';
 import Pagination from '@/components/Pagination';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Genres from '@/components/Genres';
+import Title from '@/components/Title';
 import Modal from '@/components/Modal';
 import '@/styles/PagesStyleBase.css';
 
@@ -21,7 +21,7 @@ const GenrePage = () => {
   return (
     <div className="page-container">
       <div className="page-container-content">
-        <Header />
+        <Title />
         <Navbar />
         <div className="page-container-content-animesection">
           <AnimesSection

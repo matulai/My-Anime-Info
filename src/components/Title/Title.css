@@ -1,0 +1,14 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-black-secondary);
+  padding: 0px 8px;
+  height: 54px;
+  color: var(--color-yellow);
+}
+
+.header-container-title {
+  color: var(--color-yellow);
+  font-size: 40px;
+  font-weight: 400;
+}
