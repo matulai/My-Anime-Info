@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import ChevronIcon from '@/components/Icons/ChevronIcon';
 import Navbar from '@/components/Navbar';
+import Title from '@/components/Title';
 import './Menu.css';
 
 const Menu = () => {
@@ -13,17 +15,23 @@ const Menu = () => {
         <span className="menu-button-line" />
       </button>
       <div className={`menu-drop-down ${isOpen ? 'open' : 'close'}`}>
-        <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
-          {'<'}
-        </button>
-        <Navbar />
-        {isOpen && (
+        <div className="menu-drop-down-header">
+          <Title />
           <button
-            className="menu-block-background"
-            onClick={() => setIsOpen(false)}
-          />
-        )}
+            className="menu-button-icon"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <ChevronIcon />
+          </button>
+        </div>
+        <Navbar />
       </div>
+      {isOpen && (
+        <button
+          className="menu-block-background"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
     </>
   );
 };

@@ -7,7 +7,9 @@ import './Header.css';
 const Header = () => {
   return (
     <>
-      <Title />
+      <div className="header-container-sub-navbar-view">
+        <Title />
+      </div>
       <div className="header-container-sub">
         <Menu />
         <div className="header-container-sub-navbar-view">
