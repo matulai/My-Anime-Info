@@ -1,7 +1,9 @@
 .animesbox-container {
   display: flex;
   flex-wrap: wrap;
+  flex: 1;
   justify-content: flex-start;
+  align-content: flex-start;
   width: 100%;
   padding: 16px 16px;
   gap: 16px;
@@ -12,11 +14,9 @@
 
 .animesbox-container-anime {
   display: flex;
-  flex: 0 0 calc((100% - (3 * 16px)) / 4);
+  flex: 0 0 calc((100% - (2 * 16px)) / 3);
   flex-direction: column;
   gap: 6px;
-  /* width: 164.5px; */
-  height: 255px;
   overflow: hidden;
   transition: 0.3s;
 }
@@ -40,4 +40,10 @@
 
 .animesbox-container-anime:hover {
   transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+  .animesbox-container-anime {
+    flex: 0 0 calc((100% - (3 * 16px)) / 4);
+  }
 }
