@@ -17,13 +17,11 @@ const AnimeInfo = ({ anime, isLoading }: AnimeInfoProps) => {
           <Spinner />
         ) : (
           <>
-            <div className="anime-info-content-addlist-image">
-              <img
-                className="anime-info-content-anime-image"
-                src={anime.imageUrl}
-                alt={anime.title}
-              />
-            </div>
+            <img
+              className="anime-info-content-anime-image"
+              src={anime.imageUrl}
+              alt={anime.title}
+            />
             <div className="anime-info-content-info">
               <h2 className="subtitles title">{anime.title}</h2>
               <p>
