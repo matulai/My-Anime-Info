@@ -6,9 +6,12 @@
 
 .anime-info-content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   padding: 16px 16px;
   gap: 16px;
+  font-size: 12px;
+  color: var(--color-white);
   border-left: 1px solid var(--color-grey);
   border-right: 1px solid var(--color-grey);
   border-bottom: 1px solid var(--color-grey);
@@ -23,17 +26,16 @@
 }
 
 .anime-info-content-info {
-  color: var(--color-white);
-  font-size: 12px;
   display: flex;
   flex: 1;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 
 .anime-info-content-info-subinfo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -54,5 +56,22 @@
 }
 
 .anime-info-content-info-subinfo-trailer {
+  width: 100%;
   border: none;
+}
+
+@media (min-width: 768px) {
+  .anime-info-content {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 600px) {
+  .anime-info-content-info-subinfo {
+    flex-direction: row;
+  }
+
+  .anime-info-content-info-subinfo-trailer {
+    width: fit-content;
+  }
 }
