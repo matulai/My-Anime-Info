@@ -98,39 +98,34 @@ const SeasonPage = () => {
       <div className="page-container-content">
         <Header />
         <div className="page-container-content-animesection">
-          <div className="page-container-content-animesection-content">
-            <AnimesSection
-              title={'Season animes'}
-              animes={seasonalAnimes}
-              isLoading={
-                seasonalAnimesIsLoading ||
-                (seasonalAnimesIsLoading && seasonsInfoIsLoading)
-              }
-              children={
-                <div className="page-container-content-animesection-content-options">
-                  <OptionsVertical
-                    options={years}
-                    onClick={(option) => {
-                      setYear(option);
-                    }}
-                    defaultOption={year}
-                  />
-                  <OptionsVertical
-                    options={seasons}
-                    onClick={(option) => {
-                      setSeason(option);
-                    }}
-                    defaultOption={season}
-                  />
-                  <Button
-                    children={<SearchIcon color="#000000" size={20} />}
-                    type="iconwithborder"
-                    onClick={goToSeasonalAnime}
-                  />
-                </div>
-              }
-            />
-          </div>
+          <AnimesSection
+            title={'Season animes'}
+            animes={seasonalAnimes}
+            isLoading={seasonalAnimesIsLoading || seasonsInfoIsLoading}
+            children={
+              <div className="page-container-content-animesection-content-options">
+                <OptionsVertical
+                  options={years}
+                  onClick={(option) => {
+                    setYear(option);
+                  }}
+                  defaultOption={year}
+                />
+                <OptionsVertical
+                  options={seasons}
+                  onClick={(option) => {
+                    setSeason(option);
+                  }}
+                  defaultOption={season}
+                />
+                <Button
+                  children={<SearchIcon color="#000000" size={20} />}
+                  type="iconwithborder"
+                  onClick={goToSeasonalAnime}
+                />
+              </div>
+            }
+          />
           <Genres />
         </div>
       </div>
