@@ -41,7 +41,7 @@ const router = createHashRouter([
     errorElement: <NotFoundPage />,
   },
   {
-    path: '/randomAnimes',
+    path: '/random/animes',
     element: <RandomAnimePage />,
   },
   {
