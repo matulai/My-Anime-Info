@@ -1,0 +1,40 @@
+.animesbox-container-anime {
+  display: flex;
+  flex: 0 0 calc((100% - (2 * 16px)) / 3);
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+  transition: 0.3s ease-out;
+  opacity: 0;
+}
+
+.animesbox-container-anime-image {
+  width: 100%;
+  height: 100%;
+  max-height: 225px;
+  object-fit: cover;
+}
+
+.animesbox-container-anime-title {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  color: #f0f0f0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.animesbox-container-anime:hover {
+  transform: scale(1.05);
+}
+
+.img-loaded {
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .animesbox-container-anime {
+    flex: 0 0 calc((100% - (3 * 16px)) / 4);
+  }
+}
