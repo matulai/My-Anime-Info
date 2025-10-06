@@ -15,7 +15,7 @@ const AnimesBox = ({ animeArr, isLoading }: AnimeArrProp) => {
         <Spinner />
       ) : (
         animeArr.map((anime, index) => (
-          <AnimeImgFadeIn index={index} anime={anime} />
+          <AnimeImgFadeIn key={index} anime={anime} />
         ))
       )}
     </div>

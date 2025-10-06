@@ -4,18 +4,14 @@ import { Link } from 'react-router-dom';
 import './AnimeImgFadeIn.css';
 
 interface AnimeImgFadeInProps {
-  index: number;
   anime: Anime;
 }
 
-const AnimeImgFadeIn = ({ index, anime }: AnimeImgFadeInProps) => {
+const AnimeImgFadeIn = ({ anime }: AnimeImgFadeInProps) => {
   const [isLoad, setIsLoad] = useState(false);
 
   return (
-    <div
-      className={`animesbox-container-anime ${isLoad ? 'img-loaded' : ''}`}
-      key={index}
-    >
+    <div className={`animesbox-container-anime ${isLoad ? 'img-loaded' : ''}`}>
       <Link
         to={`/animeInfo/${anime.id}`}
         className="animesbox-container-anime-image"
