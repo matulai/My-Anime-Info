@@ -17,7 +17,6 @@ const Navbar = () => {
         const isActive = link.matchPrefix
           ? location.pathname.startsWith(link.matchPrefix)
           : location.pathname === link.to;
-        console.log(isActive, link.to, location);
         return (
           <NavLink
             key={index}
