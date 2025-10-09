@@ -22,7 +22,7 @@
   height: 100%;
   max-width: 288px;
   max-height: 368px;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .anime-info-content-info {
